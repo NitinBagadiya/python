@@ -30,14 +30,7 @@ def compress_image(src, verbose = False):
         compress(file, os.path.join(target_dir, os.path.basename(file)))
 
     return
-
-def main():
-    sourceDir = "D:\\Nitin\\flat_docs\\final"
-    for im in os.listdir(sourceDir):
-
-        if not os.path.isfile(im):
-            print(im)
-            compress_image(os.path.join(sourceDir, im))
     
 if __name__ == "__main__":
-    main()
+    src = sys.argv[1] if len(sys.argv)>1 else input("Enter source path:\n").strip()
+    compress_image(src)
